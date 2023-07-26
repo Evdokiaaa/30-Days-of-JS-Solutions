@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>print the name of country, capital, languages, population and area.</h2>
+    <script>
+      const URL = "https://restcountries.com/v2/all";
+      let countries;
+      const fetching = async () => {
+        try {
+          const response = await fetch(URL);
+          const data = await response.json();
+          countries = data;
+          for (country of countries) {
+            console.log(country);
+            const countryLanguages = country.languages.map(
+              (language) => language.name
+            );
+
+            console.log(
+              `Name:${country.name}, Capital:${
+                country.capital
+              } Languages:${countryLanguages.join(" ")}, Population: ${
+                country.population
+              }, Area: ${country.area}`
+            );
+          }
+          const largestCountries = countries
+            .sort((a, b) => b.population - a.population)
+            .slice(0, 10)
+            .map((country) => country.name);
+
+          console.log("The 10 largest countries are:");
+          console.log(largestCountries);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      fetching();
+    </script>
+  </body>
+</html>

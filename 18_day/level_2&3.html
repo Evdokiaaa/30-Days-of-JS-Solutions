@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const URL = "https://api.thecatapi.com/v1/breeds";
+      const fetching = async () => {
+        const response = await fetch(URL);
+        const data = await response.json();
+        const catNames = [];
+        const averageWeight = [];
+        // console.log(data);
+        for (const cat of data) {
+          catNames.push(cat.name);
+          averageWeight.push(cat.weight.metric); //3.5
+        }
+        //1.. console.log(catNames);
+        const frequencies = {};
+
+        averageWeight.forEach((num) => {
+          frequencies[num] = frequencies[num] ? frequencies[num] + 1 : 1;
+        });
+
+        let maxFrequency = 0;
+        let mostFrequentNumber = null;
+
+        for (const num in frequencies) {
+          if (frequencies[num] > maxFrequency) {
+            maxFrequency = frequencies[num];
+            mostFrequentNumber = num;
+          }
+        }
+
+        console.log(
+          `The most frequently occurring number is: ${mostFrequentNumber} (occurs ${maxFrequency} times)`
+        );
+      };
+      fetching();
+    </script>
+  </body>
+</html>

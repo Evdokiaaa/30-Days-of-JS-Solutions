@@ -1,0 +1,1 @@
+console.log(personAccount.incomes);
