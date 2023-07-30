@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Validating Web Form</h1>
+
+      <form action="#" method="post">
+        <div class="form__input">
+          <label for="name">First Name</label>
+          <input type="text" id="name" name="name" required />
+          <div id="name__error" class="error__message"></div>
+        </div>
+
+        <div class="form__input">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" required />
+          <div id="lastname-error" class="error__message"></div>
+        </div>
+
+        <div class="form__input">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <div id="email-error" class="error__message"></div>
+        </div>
+
+        <div class="form__input">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+          <div id="password-error" class="error__message"></div>
+        </div>
+
+        <div class="form__input">
+          <label for="tel">Telephone</label>
+          <input type="tel" id="tel" name="tel" />
+          <div id="tel-error" class="error__message"></div>
+        </div>
+
+        <div class="form__input">
+          <label for="bio">Your bio</label>
+          <input type="text" id="bio" name="bio" />
+
+          <div id="bio-error" class="error__message"></div>
+        </div>
+        <div class="form__btn">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

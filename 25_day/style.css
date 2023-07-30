@@ -1,0 +1,114 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+h1 {
+  color: orange;
+  font-size: 4rem;
+}
+.top {
+  background-color: #dcdada;
+  height: 10em;
+  text-align: center;
+  padding: 2em;
+  box-shadow: 0px 4px 12px;
+}
+
+.top p {
+  font-size: 1.5rem;
+}
+
+.middle {
+  /* border :1px solid black; */
+  height: 8em;
+  text-align: center;
+  padding: 2%;
+}
+
+.middle p {
+  /* font-size: 1.em; */
+  margin-top: 1%;
+}
+
+.btn {
+  height: 50px;
+  width: 150px;
+  outline: none;
+  border-radius: 10px;
+  margin-left: 1em;
+  background-color: orange;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.btn:active {
+  transform: scale(1.05);
+  box-shadow: 0px 2px 2px 0px;
+}
+
+.container {
+  border-top: 2px solid black;
+  height: 23rem;
+  display: flex;
+  background-color: aliceblue;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.countries {
+  height: 100%;
+
+  width: 25%;
+  display: grid;
+  text-align: right;
+  padding-right: 5rem;
+  padding-top: 1rem;
+}
+
+.countries::before {
+  content: "Country";
+  text-decoration: underline;
+}
+
+.country {
+  /* border :1px solid black; */
+  margin-top: 3px;
+}
+
+.graph {
+  height: 100%;
+  /* border: 1px solid red; */
+  width: 50%;
+  display: grid;
+  text-align: center; /*watchout this line */
+  padding-right: 5rem;
+  /* padding-top: 1rem; */
+}
+
+.graph::before {
+  content: "graph";
+  text-decoration: underline;
+}
+
+.stats {
+  height: 100%;
+
+  width: 25%;
+  display: grid;
+  text-align: left;
+  padding-right: 5rem;
+  padding-top: 1rem;
+}
+
+.stats::before {
+  content: "Stats";
+  text-decoration: underline;
+}
+
+.fillin {
+  background-color: orange;
+}
