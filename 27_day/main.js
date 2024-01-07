@@ -23,27 +23,21 @@ const colors = [
   "pink",
   "grey",
 ];
-const randomsIndex = () => {
-  return Math.floor(Math.random() * jobs.length);
-};
-const randomColorIndex = () => {
-  return Math.floor(Math.random() * colors.length);
-};
-const randomSubjectIndex = () => {
-  return Math.floor(Math.random() * subjects.length);
+const randomIndex = (arr) => {
+  return Math.floor(Math.random() * arr.length);
 };
 
-const animation_skills = setInterval(() => {
-  const index = randomsIndex();
-  const colorIndex = randomColorIndex();
-  const subjectIndex = randomSubjectIndex();
+const animationContent = setInterval(() => {
+  const jobIndex = randomIndex(jobs);
+  const colorIndex = randomIndex(colors);
+  const subjectIndex = randomIndex(subjects);
   animationColorTecho.textContent = subjects[subjectIndex];
   animationColorTecho.style.color = `${colors[colorIndex]}`;
   if (animationText.classList.contains("animate")) {
     animationText.classList.remove("animate");
     animationText.innerHTML = "";
   } else {
-    animationText.innerHTML = jobs[index];
+    animationText.innerHTML = jobs[jobIndex];
     animationText.classList.add("animate");
   }
 }, 1000);

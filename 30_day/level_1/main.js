@@ -1,5 +1,8 @@
-const container = document.querySelector(".countries__container");
 const URL = "https://restcountries.com/v2/all";
+const container = document.querySelector(".countries__container");
+const sortByCapitalBtn = document.querySelector(".btn__capital");
+const sortByNameBtn = document.querySelector(".btn__name");
+const sortByPopulationBtn = document.querySelector(".btn__population");
 
 let allCountries = [];
 
@@ -7,6 +10,7 @@ const countries = (URL) => {
   fetch(URL)
     .then((response) => response.json())
     .then((data) => {
+      console.log("dataatata", data);
       allCountries = data;
 
       createCountryElements(allCountries);
@@ -18,8 +22,6 @@ const countries = (URL) => {
       console.error("Ошибка:", error);
     });
 };
-
-countries(URL);
 
 function createCountryElements(countries) {
   container.innerHTML = "";
@@ -69,4 +71,27 @@ function handleSearch() {
   createCountryElements(filteredCountries);
 }
 
-function sortbyPopulation() {}
+function sortByName() {
+  allCountries.sort((a, b) => a.name.localeCompare(b.name));
+  createCountryElements(allCountries);
+}
+
+function sortByPopulation() {
+  allCountries.sort((a, b) => a.population - b.population);
+  createCountryElements(allCountries);
+}
+
+function sortByCapital() {
+  allCountries.sort((a, b) => a.capital.localeCompare(b.capital));
+  createCountryElements(allCountries);
+}
+window.addEventListener("load", () => {
+  countries(URL);
+});
+
+sortByNameBtn.addEventListener("click", sortByName);
+sortByPopulationBtn.addEventListener("click", sortByPopulation);
+sortByCapitalBtn.addEventListener("click", () => {
+  console.log("click");
+  sortByCapital();
+});
